@@ -20,6 +20,13 @@ namespace _10433939_CLDV6212_POE_P1.Models
             //Register Blob with configuration
             builder.Services.AddSingleton(new BlobService(configuration.GetConnectionString("AzureStorage")));
 
+            //Register Queue with configuration
+            builder.Services.AddSingleton<QueueService>(sp =>
+            {
+                var connectionString = configuration.GetConnectionString("AzureStorage");
+                return new QueueService(connectionString, "orders");
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
