@@ -22,10 +22,7 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                Image
-            </th>
-            <th>
-                Action
+                @Html.DisplayNameFor(model => model.ImageUrl)
             </th>
             <th></th>
         </tr>
@@ -50,7 +47,7 @@
                     }
                 </td>
                 <td>
-                    <form asp-action="DeleteBird" method="post" style="display:inline;">
+                    <form asp-action="DeleteProduct" method="post" style="display:inline;">
                         <input type="hidden" name="partitionKey" value="@item.PartitionKey" />
                         <input type="hidden" name="rowKey" value="@item.RowKey" />
                         <input type="hidden" name="ImageUrl" value="@item.ImageUrl" />

@@ -10,7 +10,7 @@ namespace _10433939_CLDV6212_POE_P1.Models
         public int Product_Id { get; set; }
         public string? Product_Name { get; set; }
         public string? Description { get; set; }
-        public double Price { get; set; }
+        public string? Price { get; set; }
         public string? ImageUrl { get; set; }
         
 

@@ -32,10 +32,10 @@ namespace _10433939_CLDV6212_POE_P1.Controllers
 
             if (ModelState.IsValid)
             {
-                product.PartitionKey = "ProductsPartition";
+                product.PartitionKey = "ProductPartition";
                 product.RowKey = Guid.NewGuid().ToString();
 
-                await _tableStorageService.AddProductAsync(product);
+                await _tableStorageService.addProductAsync(product);
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -45,7 +45,7 @@ namespace _10433939_CLDV6212_POE_P1.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(string partitionKey, string rowKey, Product product)
         {
-            if (product != null && !string.IsNullOrEmpty(product.ImageUrl))
+            if(product != null && !string.IsNullOrEmpty(product.ImageUrl))
             {
                 //Delete blob image
                 await _blobService.DeleteBlobAsync(product.ImageUrl);

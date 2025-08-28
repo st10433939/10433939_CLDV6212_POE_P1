@@ -63,7 +63,7 @@ namespace _10433939_CLDV6212_POE_P1.Services
             return products;
         }
         //Add
-        public async Task AddProductAsync(Product product)
+        public async Task addProductAsync(Product product)
         {
             if (string.IsNullOrEmpty(product.PartitionKey) || string.IsNullOrEmpty(product.RowKey))
             {
