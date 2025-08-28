@@ -27,6 +27,13 @@ namespace _10433939_CLDV6212_POE_P1.Models
                 return new QueueService(connectionString, "orders");
             });
 
+            //Register File with configuration
+            builder.Services.AddSingleton<AzureFileShareService>(sp =>
+            {
+                var connectionString = configuration.GetConnectionString("AzureStorage");
+                return new AzureFileShareService(connectionString, "productshare");
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
