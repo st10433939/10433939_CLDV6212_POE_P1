@@ -17,6 +17,9 @@ namespace _10433939_CLDV6212_POE_P1.Models
             //Register TableStorage with configuration
             builder.Services.AddSingleton(new TableStorageService(configuration.GetConnectionString("AzureStorage")));
 
+            //Register Blob with configuration
+            builder.Services.AddSingleton(new BlobService(configuration.GetConnectionString("AzureStorage")));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
